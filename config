@@ -1,3 +1,7 @@
+# 查看窗口CLASS
+# xprop | grep WM_CLASS
+
+
 # 开机自启动部分
 # 背景图片
 exec --no-startup-id feh --bg-fill "$HOME/图片/backgrounds/01.jpg"   
@@ -33,11 +37,11 @@ for_window [class="dingtalk"] floating enable
 
 # ---- 窗口边框
 # 默认普通窗口边框
-new_window border pixel 3
+new_window pixel 1
 # 默认浮动窗口边框
-new_float border pixel 3
+new_float pixel 4
 # 取消工作区边框
-#hide_edge_borders both
+hide_edge_borders smart
 # 在三种边框中切换
 bindsym $mod+b border toggle
 
