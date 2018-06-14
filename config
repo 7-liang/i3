@@ -33,13 +33,13 @@ for_window [class="dingtalk"] floating enable
 
 ########## 焦点跳转
 # 向左移
-bindsym $mod+j focus left 
+bindsym $mod+h focus left 
 # 向下
-bindsym $mod+k focus down
+bindsym $mod+j focus down
 # 向上
-bindsym $mod+l focus up 
+bindsym $mod+k focus up 
 # 分号向右
-bindsym $mod+semicolon focus right 
+bindsym $mod+l focus right 
 # 方向键向左
 bindsym $mod+Left focus left 
 # 右
@@ -60,10 +60,10 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # 移动焦点窗口
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Up move up
@@ -71,7 +71,7 @@ bindsym $mod+Shift+Down move down
 
 # 预分割桌面，留待下个窗口打开位置
 # 横向分割
-bindsym $mod+h split h        
+bindsym $mod+i split h        
 # 纵向分割
 bindsym $mod+v split v        
 
@@ -97,10 +97,10 @@ bindsym $mod+minus scratchpad show
 
 # 调整窗口大小 win+r 再 jkl;及方向
 mode "resize" {
-    bindsym j resize shrink width 10 px or 1 ppt
-    bindsym k resize grow height 10 px or 1 ppt
-    bindsym l resize shrink height 10 px or 1 ppt
-    bindsym semicolon resize grow width 10 px or 1 ppt
+    bindsym h resize shrink width 10 px or 1 ppt
+    bindsym j resize grow height 10 px or 1 ppt
+    bindsym k resize shrink height 10 px or 1 ppt
+    bindsym l resize grow width 10 px or 1 ppt
     bindsym Left resize shrink width 10 px or 1 ppt
     bindsym Right resize grow width 10 px or 1 ppt
     bindsym Up resize shrink height 10 px or 1 ppt
@@ -127,8 +127,11 @@ bindsym $mod+0  workspace 0
 # 移动窗口到其它工作区
 # win + alt + 左箭头 移动到上一个工作区
 bindsym $mod+mod1+Left move container to workspace prev, workspace prev  
+bindsym $mod+mod1+h move container to workspace prev, workspace prev  
 # win + alt + 右箭头 移动到下一个工作区
 bindsym $mod+mod1+Right move container to workspace next, workspace next  
+bindsym $mod+mod1+l move container to workspace next, workspace next  
+
 bindsym $mod+mod1+1 move container to workspace 1, workspace 1
 bindsym $mod+mod1+2 move container to workspace 2, workspace 2
 bindsym $mod+mod1+3 move container to workspace 3, workspace 3
@@ -163,7 +166,7 @@ mode "$mode_system" {
 ##########  主题部分  ##########
 
 # 字体设定
-font pango:monospace 9
+font pango:monospace 8
 
 # 窗口颜色                边框    背景    文字    提示
 client.focused            #339999 #339999 #FFFFFF #333333
