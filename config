@@ -48,9 +48,9 @@ bindsym $mod+Right focus right
 bindsym $mod+Up focus up 
 # 下
 bindsym $mod+Down focus down 
-# win+tab 下一个 alt+tab 上一个
-bindsym $mod+Tab focus right
-bindsym mod1+Tab focus left
+# win+tab 上一个 alt+tab 下一个
+bindsym $mod+Tab focus left 
+bindsym mod1+Tab focus right
 
 # 焦点随鼠标移动
 focus_follows_mouse yes
@@ -179,7 +179,7 @@ bar {
  # i3bar
  status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
  # 位置
- position top
+ # position top
  # 隐藏
  # mode hide
  # 显示/隐藏切换
@@ -200,6 +200,3 @@ bar {
   # binding_mode     #990000 #990000 #FFFFFF
 # }
 }
-
-
-new_float pixel 1
