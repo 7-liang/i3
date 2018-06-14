@@ -95,8 +95,8 @@ mode "resize" {
     bindsym semicolon resize grow width 10 px or 1 ppt
     bindsym Left resize shrink width 10 px or 1 ppt
     bindsym Right resize grow width 10 px or 1 ppt
-    bindsym Up resize grow height 10 px or 1 ppt
-    bindsym Down resize shrink height 10 px or 1 ppt
+    bindsym Up resize shrink height 10 px or 1 ppt
+    bindsym Down resize grow height 10 px or 1 ppt
 
     # 回车/Esc 恢复默认
     bindsym Return mode "default"
