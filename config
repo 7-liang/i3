@@ -31,6 +31,16 @@ for_window [class="Pcmanfm"] floating enable
 for_window [class="electronic-wechat"] floating enable
 for_window [class="dingtalk"] floating enable
 
+# ---- 窗口边框
+# 默认普通窗口边框
+new_window border pixel 3
+# 默认浮动窗口边框
+new_float border pixel 3
+# 取消工作区边框
+#hide_edge_borders both
+# 在三种边框中切换
+bindsym $mod+b border toggle
+
 ########## 焦点跳转
 # 向左移
 bindsym $mod+h focus left 
