@@ -34,7 +34,7 @@ bindsym $mod+p exec pcmanfm
 for_window [class="Pcmanfm"] floating enable
 for_window [class="electronic-wechat"] floating enable
 for_window [class="dingtalk"] floating enable
-for_window [class="TIM.exe"] floating enable
+for_window [class="Wine"] floating enable
 
 # ---- 窗口边框
 # 默认普通窗口边框
