@@ -34,6 +34,7 @@ bindsym $mod+p exec pcmanfm
 for_window [class="Pcmanfm"] floating enable
 for_window [class="electronic-wechat"] floating enable
 for_window [class="dingtalk"] floating enable
+for_window [class="TIM.exe"] floating enable
 
 # ---- 窗口边框
 # 默认普通窗口边框
@@ -85,7 +86,7 @@ bindsym $mod+Shift+Down move down
 
 # 预分割桌面，留待下个窗口打开位置
 # 横向分割
-bindsym $mod+i split h        
+bindsym $mod+Shift+v split h        
 # 纵向分割
 bindsym $mod+v split v        
 
@@ -196,7 +197,7 @@ bar {
  # i3bar
  status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
  # 位置
- # position top
+ position top
  # 隐藏
  # mode hide
  # 显示/隐藏切换
