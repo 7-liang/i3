@@ -14,6 +14,14 @@ exec --no-startup-id nm-applet
 # 声音托盘
 exec --no-startup-id volumeicon        
 
+# ----- 自动关闭触摸板
+exec --no-startup-id synclient TouchpadOff=1
+# 打开触摸板
+bindsym $mod+mod1+t exec synclient TouchpadOff=0
+# 关闭触摸板
+bindsym $mod+mod1+Shift+t exec synclient TouchpadOff=1
+
+
 # 设定 mod 键 win
 set $mod Mod4
 
