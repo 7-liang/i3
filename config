@@ -24,7 +24,10 @@ floating_modifier $mod
 # mod + 回车启动终端 
 bindsym $mod+Return exec i3-sensible-terminal 
 # 启动 dmenu 
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-9' -nb '#333333' -nf '#FFFFFF' -sb '#111111' -sf '#3399FF'
+bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-8' -nb '#333333' -nf '#FFFFFF' -sb '#111111' -sf '#3399FF'
+# 启动 rofi
+# bindsym $mod+d exec --no-startup-id rofi -show run -font 'Hack 8.5' -width 35 -theme solarized_alternate
 # kill 当前窗口 
 bindsym $mod+Shift+q kill 
 # 启动 pcman 文件浏览器
