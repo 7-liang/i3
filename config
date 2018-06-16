@@ -6,7 +6,7 @@
 # 背景图片
 exec --no-startup-id feh --bg-fill "$HOME/图片/backgrounds/01.jpg"   
 # 设定主显示器
-#exec --no-startup-id xrandr --output HDMI-0 --primary     
+exec --no-startup-id xrandr --output DVI-D-0 --primary     
 # 透明支持
 exec --no-startup-id compton &        
 # 通知托盘
@@ -207,6 +207,7 @@ bindsym $mod+m  bar mode toggle
 bar {
  # i3bar
  status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
+ tray_output DVI-D-0
  # 位置
  position top
  # 隐藏
