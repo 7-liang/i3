@@ -1,163 +1,97 @@
-# 查看窗口CLASS
+# 查看窗口 CLASS
 # xprop | grep WM_CLASS
 
-
-# 开机自启动部分
-# 背景图片
-exec --no-startup-id feh --bg-fill "$HOME/图片/backgrounds/01.jpg"   
-# 设定主显示器
-exec --no-startup-id xrandr --output DVI-D-0 --primary     
-# 透明支持
-exec --no-startup-id compton &        
-# 通知托盘
-exec --no-startup-id nm-applet        
-# 声音托盘
-exec --no-startup-id volumeicon        
-
-# ----- 自动关闭触摸板
-exec --no-startup-id synclient TouchpadOff=1
-# 打开触摸板
-bindsym $mod+mod1+t exec synclient TouchpadOff=0
-# 关闭触摸板
-bindsym $mod+mod1+Shift+t exec synclient TouchpadOff=1
-
-
-# 设定 mod 键 win
+# mod 键 Win
 set $mod Mod4
 
-# 拖动浮动窗口 按住 $mod + 鼠标
+# 字体
+font pango:monospace 8
+
+# 按住 $mod 键拖动浮动窗口
 floating_modifier $mod
 
-# 快捷启动部分
-# mod + 回车启动终端 
-bindsym $mod+Return exec i3-sensible-terminal 
-# 启动 dmenu 
+########## 快捷启动 ##########
+# win + enter 启动终端
+bindsym $mod+Return exec i3-sensible-terminal
+# 启动 dmenu win + d
 bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-8' -nb '#333333' -nf '#FFFFFF' -sb '#111111' -sf '#3399FF'
-# 启动 rofi
-# bindsym $mod+d exec --no-startup-id rofi -show run -font 'Hack 8.5' -width 35 -theme solarized_alternate
-# kill 当前窗口 
-bindsym $mod+Shift+q kill 
-# 启动 pcman 文件浏览器
-bindsym $mod+p exec pcmanfm 
+# bindsym $mod+d exec --no-startup-id dmenu_run -fn "Hack-8" -nb "#333333" -nf "#FFFFFF" -sb "#111111" -sf "#3399FF"
+# 启动 pcmanfm 文件管理器
+bindsym $mod+p exec pcmanfm
 
-# 指定窗口浮动
-for_window [class="Pcmanfm"] floating enable
-for_window [class="electronic-wechat"] floating enable
-for_window [class="dingtalk"] floating enable
-for_window [class="Wine"] floating enable
+# kill 当前窗口
+bindsym $mod+Shift+q kill
 
-# ---- 窗口边框
-# 默认普通窗口边框
-new_window pixel 1
-# 默认浮动窗口边框
-new_float pixel 1
-# 取消工作区边框
-hide_edge_borders smart
-# 在三种边框中切换
-bindsym $mod+b border toggle
-
-########## 焦点跳转
-# 向左移
-bindsym $mod+h focus left 
-# 向下
+########## 焦点跳转 ##########
+# win + hjkl
+bindsym $mod+h focus left
 bindsym $mod+j focus down
-# 向上
-bindsym $mod+k focus up 
-# 分号向右
-bindsym $mod+l focus right 
-# 方向键向左
-bindsym $mod+Left focus left 
-# 右
-bindsym $mod+Right focus right 
-# 上
-bindsym $mod+Up focus up 
-# 下
-bindsym $mod+Down focus down 
-# win+tab 上一个 alt+tab 下一个
-bindsym $mod+Tab focus left 
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# win + 方向键
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# win + tab
+bindsym $mod+Tab focus left
+# alt + tab
 bindsym mod1+Tab focus right
 
-# 焦点随鼠标移动
-focus_follows_mouse yes
-# 焦点切换到父窗口
-bindsym $mod+a focus parent
-# 焦点切换回子窗口
-bindsym $mod+Shift+a focus child
-
-# 移动焦点窗口
+########## 移动焦点窗口 ##########
+# win + shift + hjkl
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+# win + shift + 方向键
 bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
-# 预分割桌面，留待下个窗口打开位置
-# 横向分割
-bindsym $mod+Shift+v split h        
-# 纵向分割
-bindsym $mod+v split v        
+########## 预分割窗口 ##########
+# win + shift + v 横向分割
+bindsym $mod+Shift+v split h
+# win + v 纵向分割
+bindsym $mod+v split v
 
-# 布局切换部分
-# 全屏切换
-bindsym $mod+f fullscreen toggle 
-# 堆叠布局
-bindsym $mod+s layout stacking 
-# 标签布局
-bindsym $mod+w layout tabbed 
-# 平铺布局
-bindsym $mod+e layout toggle split 
-# 所有布局中切换
-bindsym $mod+x layout toggle all 
-# 浮动切换
-bindsym $mod+Shift+space floating toggle 
+########## 布局切换 ##########
+# change container layout (stacked, tabbed, toggle split)
+# 堆叠 win + s
+bindsym $mod+s layout stacking
+# 标签 win + w
+bindsym $mod+w layout tabbed
+# 平铺 win + e
+bindsym $mod+e layout toggle split
+# 所有布局中切换 win + x
+bindsym $mod+x layout toggle all
 
-# 暂存窗口
-# 转换普通窗口为暂存窗口
-bindsym $mod+Shift+minus move scratchpad
-# 呼出/隐藏暂存窗口
-bindsym $mod+minus scratchpad show
+# 切换全屏 win + f
+bindsym $mod+f fullscreen toggle
+# 切换浮动 win + shift + 空格
+bindsym $mod+Shift+space floating toggle
+# 普通/浮动窗口焦点切换 win + 空格
+bindsym $mod+space focus mode_toggle
 
-# 调整窗口大小 win+r 再 jkl;及方向
-mode "resize" {
-    bindsym h resize shrink width 10 px or 1 ppt
-    bindsym j resize grow height 10 px or 1 ppt
-    bindsym k resize shrink height 10 px or 1 ppt
-    bindsym l resize grow width 10 px or 1 ppt
-    bindsym Left resize shrink width 10 px or 1 ppt
-    bindsym Right resize grow width 10 px or 1 ppt
-    bindsym Up resize shrink height 10 px or 1 ppt
-    bindsym Down resize grow height 10 px or 1 ppt
+# 焦点移至父窗口 win + a
+bindsym $mod+a focus parent
+# 子窗口 win + shift + a
+bindsym $mod+Shift+a focus child
 
-    # 回车/Esc 恢复默认
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
-# 切换工作区
-bindsym $mod+1  workspace 1
-bindsym $mod+2  workspace 2
-bindsym $mod+3  workspace 3
-bindsym $mod+4  workspace 4
-bindsym $mod+5  workspace 5
-bindsym $mod+6  workspace 6
-bindsym $mod+7  workspace 7
-bindsym $mod+8  workspace 8
-bindsym $mod+9  workspace 9
-bindsym $mod+0  workspace 0
-
-# 移动窗口到其它工作区
-# win + alt + 左箭头 移动到上一个工作区
-bindsym $mod+mod1+Left move container to workspace prev, workspace prev  
-bindsym $mod+mod1+h move container to workspace prev, workspace prev  
-# win + alt + 右箭头 移动到下一个工作区
-bindsym $mod+mod1+Right move container to workspace next, workspace next  
-bindsym $mod+mod1+l move container to workspace next, workspace next  
-
+########## 工作区 ##########
+# 切换工作区 win + 数字
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+# 移动当前窗口到其它工作区 win + alt + 数字
 bindsym $mod+mod1+1 move container to workspace 1, workspace 1
 bindsym $mod+mod1+2 move container to workspace 2, workspace 2
 bindsym $mod+mod1+3 move container to workspace 3, workspace 3
@@ -167,66 +101,112 @@ bindsym $mod+mod1+6 move container to workspace 6, workspace 6
 bindsym $mod+mod1+7 move container to workspace 7, workspace 7
 bindsym $mod+mod1+8 move container to workspace 8, workspace 8
 bindsym $mod+mod1+9 move container to workspace 9, workspace 9
-bindsym $mod+mod1+0 move container to workspace 0, workspace 0
+bindsym $mod+mod1+0 move container to workspace 10, workspace 10
+# 移到上一个工作区 win + alt + h / win + alt + 左箭头
+bindsym $mod+mod1+Left move container to workspace prev, workspace prev
+bindsym $mod+mod1+h move container to workspace prev, workspace prev
+# 移到下一个工作区 win + alt + l / win + alt + 右箭头
+bindsym $mod+mod1+Right move container to workspace next, workspace next 
+bindsym $mod+mod1+l move container to workspace next, workspace next 
 
 # 重新读取 i3 配置文件
 bindsym $mod+Shift+c reload
-# 重新加载 配置文件
+# 重新加载配置文件
 bindsym $mod+Shift+r restart
 # 退出 i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '你真的想退出 i3 么？' -b '退出 i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '你真的需要退出 i3wm 么？' -b '退出' 'i3-msg exit'"
 
-# 电源管理，快捷关机等等
-set $mode_system 锁屏(L) 注销(O) 关机(S) 重启(R) 取消(Esc)
-bindsym $mod+Pause mode "$mode_system"
-mode "$mode_system" {
- bindsym l exec i3lock -c '#333333', exec sleep .1 && exec xset dpms force off, mode "default"
- bindsym o exec i3-msg exit
- bindsym s exec systemctl poweroff
- bindsym r exec systemctl reboot
- bindsym Escape mode "default"
+# 调整窗口大小 win + r
+mode "resize" {
+        # hjkl
+        bindsym h resize shrink width 10 px or 1 ppt
+        bindsym j resize grow height 10 px or 1 ppt
+        bindsym k resize shrink height 10 px or 1 ppt
+        bindsym l resize grow width 10 px or 1 ppt
+        # 方向键
+        bindsym Left resize shrink width 10 px or 1 ppt
+        bindsym Down resize grow height 10 px or 1 ppt
+        bindsym Up resize shrink height 10 px or 1 ppt
+        bindsym Right resize grow width 10 px or 1 ppt
+        # 回车 / Esc 恢复默认大小
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+########## 主题设置 ##########
+bar {
+        # i3bar 设置
+        #status_command i3status
+        status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
+        # 顶部显示
+        position top
+        # 隐藏
+        # mode hide
+        # 显示/隐藏切换 win
+        # modifier $mod
+        # 隐藏工作区名（前面的数字1234...）
+        strip_workspace_numbers yes
+        # 定义分隔符
+        # separator_symbool " "
+        # color {
+                # background #333333
+                # statusline #FFFFFF
+                # eparator #3399FF
+                # 工作区颜色            边框    背景    文字
+                # focused_workspace   #111111 #111111 #FFFFFF
+                # active_workspace    #111111 #111111 #FFFFFF
+                # inactive_workspace  #333333 #333333 #FFFFFF
+                # urgent_workspace    #990000 #990000 #FFFFFF
+                # binding_mode        #990000 #990000 #FFFFFF
+        # }
 }
 
 
+########### 开机自启 ##########
+# 背景图片 
+exec --no-startup-id feh --bg-fill "$HOME/图片/backgrounds/01.jpg"
+# 设定主显示器（用于双屏）
+exec --no-startup-id xrandr --output DVI-D-0 --primary
+# 透明
+exec --no-startup-id compton &
+# 网络管理器
+exec --no-startup-id nm-applet
+# 音量管理器
+exec --no-startup-id volumeicon
 
-##########  主题部分  ##########
+########## 触摸板 ##########
+# 开机自动关闭触摸板
+exec --no-startup-id synclient TouchpadOff=1
+# 打开触摸板 Ctrl+Alt+t
+bindsym $mod+mod1+t exec --no-startup-id synclient TouchpadOff=0
+# 关闭触摸板 Ctrol+Alt+Shift+t
+bindsym $mod+mod1+Shift+t exec synclient TouchpadOff=1
 
-# 字体设定
-font pango:monospace 8
+########## 指定窗口浮动 ##########
+for_window [class="Pcmanfm"] floating enable
+for_window [class="electronic-wechat"] floating enable
+for_window [class="dingtalk"] floating enable
+for_window [class="Wine"] floating enable
 
-# 窗口颜色                边框    背景    文字    提示
-client.focused            #339999 #339999 #FFFFFF #333333
-#client.focused_inactive   #333333 #333333 #FFFFFF #339999
-#client.unfocused          #333333 #333333 #FFFFFF #339999
-#client.urgent             #990000 #990000 #FFFFFF #990000
-#client.placeholder        #000000 #000000 #FFFFFF #000000
-#client.background         #FFFFFF
+########## 窗口边框 ##########
+# 普通窗口边框
+new_window pixel 1
+# 浮动窗口边框
+new_float pixel 1
+# 取消工作区边框
+hide_edge_borders smart
+# 在三种边框中切换
+bindsym $mod+b border toggle
 
-# i3bar 部分
-bindsym $mod+m  bar mode toggle
-bar {
- # i3bar
- status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
- tray_output DVI-D-0
- # 位置
- position top
- # 隐藏
- # mode hide
- # 显示/隐藏切换
- # modifier $mod
- # 隐藏工作区名（前面的数字1234...）
- strip_workspace_numbers yes
- # 定义分隔符
- # separator_symbol " "
-# colors {
-#  background #333333
-#  statusline #FFFFFF
-  # eparator #3399FF
-  # 工作区颜色       边框    背景    文字
-#  focused_workspace  #111111 #111111 #FFFFFF
-#  active_workspace   #111111 #111111 #FFFFFF
-#  inactive_workspace #333333 #333333 #FFFFFF
-#  urgent_workspace   #990000 #990000 #FFFFFF
-  # binding_mode     #990000 #990000 #FFFFFF
-# }
+########## 电源管理，快捷关机等 ##########
+set $mode_system 锁屏(L) 注销(O) 重启(R) 关机(S) 取消(Esc)
+# win + Pause Break 快捷关机
+bindsym $mod+Pause mode "$mode_system"
+mode "$mode_system" {
+        bindsym l exec i3lock -c "#333333", exec sleep .1 && exec xset dpms force off, mode "default"
+        bindsym o exec i3-msg exit
+        bindsym s exec systemctl poweroff
+        bindsym r exec systemctl reboot
+        bindsym Escape mode "default"
 }
