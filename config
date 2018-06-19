@@ -139,6 +139,8 @@ bar {
         # i3bar 设置
         #status_command i3status
         status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
+	# 设定托盘显示主显示器
+	tray_output DVI-D-0
         # 顶部显示
         position top
         # 隐藏
@@ -162,7 +164,6 @@ bar {
         # }
 }
 
-
 ########### 开机自启 ##########
 # 背景图片 
 exec --no-startup-id feh --bg-fill "$HOME/图片/backgrounds/01.jpg"
@@ -174,6 +175,7 @@ exec --no-startup-id compton &
 exec --no-startup-id nm-applet
 # 音量管理器
 exec --no-startup-id volumeicon
+
 
 ########## 触摸板 ##########
 # 开机自动关闭触摸板
