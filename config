@@ -79,6 +79,12 @@ bindsym $mod+a focus parent
 # 子窗口 win + shift + a
 bindsym $mod+Shift+a focus child
 
+########## 窗口暂存隐藏 ##########
+# 转换普通窗口为暂存窗口隐藏 win + shift + 减号
+bindsym $mod+Shift+minus move scratchpad
+# 呼出/隐藏暂存窗口 win + 减号
+bindsym $mod+minus scratchpad show
+
 ########## 工作区 ##########
 # 切换工作区 win + 数字
 bindsym $mod+1 workspace 1
