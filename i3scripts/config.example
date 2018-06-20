@@ -24,28 +24,23 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-#command=/usr/share/i3blocks/$BLOCK_NAME
-command=$HOME/.config/i3/i3scripts/$BLOCK_NAME/$BLOCK_NAME
-align=center
-separator=false
-separator_block_width=20
-markup=pango
-
-[volume-pulseaudio]
-interval=once
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=none
 
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-#[volume]
-#label=VOL
-#label=VOL 🔊
-#instance=Master
+[volume]
+label=VOL
+#label=♪
+instance=Master
 #instance=PCM
-#interval=once
-#signal=10
+interval=once
+signal=10
 
 # Memory usage
 #
@@ -54,14 +49,12 @@ interval=once
 label=MEM
 separator=false
 interval=30
-color=#00FF00
 
 [memory]
 label=SWAP
 instance=swap
 separator=false
 interval=30
-color=#f92672
 
 # Disk usage
 #
@@ -72,7 +65,6 @@ color=#f92672
 label=HOME
 #instance=/mnt/data
 interval=30
-color=#4ec2f7
 
 # Network interface monitoring
 #
@@ -80,14 +72,19 @@ color=#4ec2f7
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
-color=#FF8C00
+color=#00FF00
+interval=10
+separator=false
+
+[wifi]
+#instance=wlp3s0
+label=wifi:
 interval=10
 separator=false
 
 [bandwidth]
 #instance=eth0
 interval=5
-color=#00FF00
 
 # CPU usage
 #
@@ -96,38 +93,27 @@ color=#00FF00
 [cpu_usage]
 label=CPU
 interval=10
-min_width=CPU: 100.00%
+min_width=CPU 100.00%
 #separator=false
-color=#4ec2f7
 
-#[load_average]
-#interval=10
+[load_average]
+label=LOAD
+interval=10
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
-#[battery]
-#label=BAT
-#label=BAT
+[battery]
+label=BAT
+#label=⚡
 #instance=1
-#interval=30
-
-[battery2]
-markup=pango
 interval=30
-color=#FF8C00
-
-[calendar]
-label=
-interval=1
-color=#00FF00
 
 # Date Time
 #
-#[time]
-#label=⏰
-#command=date '+%Y-%m-%d %H:%M:%S'
-#interval=5
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=5
 
 # Generic media player support
 #
