@@ -34,9 +34,9 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 # win + tab
-bindsym $mod+Tab focus left
+#bindsym $mod+Tab focus left
 # alt + tab
-bindsym mod1+Tab focus right
+#bindsym mod1+Tab focus right
 
 ########## 移动焦点窗口 ##########
 # win + shift + hjkl
@@ -86,12 +86,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 ########## 工作区 ##########
-set $ws1 "1:  Primary"
-set $ws2 "2:  "
-set $ws3 "3:  "
-set $ws4 "4:  "
-set $ws5 "5:  "
-set $ws6 "6:  "
+set $ws1 "1:  www"
+set $ws2 "2:  code"
+set $ws3 "3:  code"
+set $ws4 "4:  code"
+set $ws5 "5:  terminal"
+set $ws6 "6:  files"
 # 切换工作区 win + 数字
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -121,16 +121,16 @@ bindsym $mod+mod1+h move container to workspace prev, workspace prev
 bindsym $mod+mod1+Right move container to workspace next, workspace next 
 bindsym $mod+mod1+l move container to workspace next, workspace next 
 # 切换到下一个工作区 alt + Tab
-#bindsym mod1+Tab workspace next
+bindsym mod1+Tab workspace next
 # 切换到上一个工作区 win + tab
-#bindsym $mod+Tab workspace prev
+bindsym $mod+Tab workspace prev
 
 ########## 应用自动归类工作区 ##########
-#for_window [class="Firefox"] move container to workspace $ws1, workspace $ws1
-#for_window [class="Chromium-browser"] move container to workspace $ws1, workspace $ws1
-#for_window [class="Code"] move container to workspace $ws2, workspace $ws1
-for_window [class="X-terminal-emulator"] move container to workspace $ws2, floating enable, workspace $ws2
-for_window [class="Pcmanfm"] move container to workspace $ws2, floating enable, workspace $ws2
+for_window [class="Firefox"] move container to workspace $ws1, workspace $ws1
+for_window [class="Chromium-browser"] move container to workspace $ws1, workspace $ws1
+for_window [class="Code"] move container to workspace $ws2, workspace $ws2
+for_window [class="X-terminal-emulator"] move container to workspace $ws5, workspace $ws5
+for_window [class="Pcmanfm"] move container to workspace $ws6, workspace $ws6
 
 
 # 重新读取 i3 配置文件
@@ -164,7 +164,7 @@ bar {
         #status_command i3status
         status_command i3blocks -c "$HOME/.config/i3/i3blocks.conf"
 	# 设定托盘显示主显示器
-	tray_output DVI-D-0
+	#tray_output DVI-D-0
         # 顶部显示
         position top
         # 隐藏
@@ -193,7 +193,7 @@ bar {
 # 背景图片 
 exec --no-startup-id feh --bg-fill "$HOME/图片/backgrounds/01.jpg"
 # 设定主显示器
-exec --no-startup-id xrandr --output DVI-D-0 --primary
+#exec --no-startup-id xrandr --output DVI-D-0 --primary
 # 透明
 exec --no-startup-id compton &
 # 网络管理器
