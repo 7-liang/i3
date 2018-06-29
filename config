@@ -34,7 +34,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 # win + tab
-#bindsym $mod+Tab focus left
+bindsym $mod+Tab focus right
 # alt + tab
 #bindsym mod1+Tab focus right
 
@@ -123,7 +123,7 @@ bindsym $mod+mod1+l move container to workspace next, workspace next
 # 切换到下一个工作区 alt + Tab
 bindsym mod1+Tab workspace next
 # 切换到上一个工作区 win + tab
-bindsym $mod+Tab workspace prev
+#bindsym $mod+Tab workspace prev
 
 ########## 应用自动归类工作区 ##########
 for_window [class="Firefox"] move container to workspace $ws1, workspace $ws1
